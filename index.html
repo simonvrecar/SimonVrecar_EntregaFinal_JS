@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cotizador de costos</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/Style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <h1 class="titulo">
+      Calcule el costo del trabajo
+    </h1>
+    <div class="mensaje">
+      <p>
+        Complete los datos para saber cual es el costo total del trabajo
+      </p>
+      <p>
+        Gracias por su tiempo!
+      </p>
+    </div>
+
+    <div>
+      <form
+        action=""
+        method="POST"
+        id="formulario"
+        class="formularioParaLlenar"
+        onsubmit="return false;"
+      >
+        <h2 class="tituloSecundario">Completar Formulario</h2>
+        <hr />
+        <div class="form-group">
+          <label for="referencia">Nombre</label>
+          <input type="text" class="form-control" id="referencia" />
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_referencia"
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label for="trabajo" id="selectorTrabajo">Tipo de trabajo</label>
+          <br />
+          <div class="boton" id="trabajoProgId">
+            <input
+              class="btn btn-primary"
+              type="button"
+              value="Programador"
+              id="trabajoProg"
+            />;
+          </div>
+
+          <div class="boton" id="trabajoElectId">
+            <input
+              class="btn btn-primary"
+              type="button"
+              value="Electricista"
+              id="trabajoElect"
+            />;
+          </div>
+
+          <div class="boton" id="trabajoAsistId">
+            <input
+              class="btn btn-primary"
+              type="button"
+              value="Asistencia Tecnica"
+              id="trabajoAsist"
+            />;
+          </div>
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_trabajo"
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label for="herramientas"
+            >Computadora/herramientas propias?</label
+          >
+          <br />
+          <div class="boton" id="herramientasSiId">
+            <input
+              class="btn btn-primary"
+              type="button"
+              value="Si"
+              id="herramientasSi"
+            />
+          </div>
+
+          <div class="boton" id="herramientasNoId">
+            <input
+              class="btn btn-primary"
+              type="button"
+              value="No"
+              id="herramientasNo"
+            />
+          </div>
+
+          <!-- <input type="text" class="form-control" id="herramientas" /> -->
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_herramientas"
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label for="personas">Cantidad de personas</label>
+          <input type="number" class="form-control" id="personas" />
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_personas"
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label for="dias">Cantidad de dias a trabajar</label>
+          <input type="number" class="form-control" id="dias" />
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_dias"
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label for="horas">Cantidad de horas promedio de la jornada</label>
+          <input type="number" class="form-control" id="horas" />
+          <div
+            class="alert alert-danger my-2"
+            role="alert"
+            id="error_horas"
+          ></div>
+        </div>
+
+        <input
+          type="submit"
+          value="Enviar"
+          id="submit"
+          class="btn btn-primary"
+        />
+        <input type="reset" id="reset" class="btn btn-primary" />
+      </form>
+
+      <div class="ultimaCotizacion" role="alert" id="alerta">
+        <!--alert alert-secondary my-5-->
+        <h2 class="tituloSecundario">Resultado de la ultima Cotizacion</h2>
+        <hr />
+        <p class="font-weight-bold">
+          Referencia:
+          <span class="font-weight-light" id="infoReferencia"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Trabajo: <span class="font-weight-light" id="infoTrabajo"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Herramientas:
+          <span class="font-weight-light" id="infoHerramientas"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Personas: <span class="font-weight-light" id="infoPersonas"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Dias: <span class="font-weight-light" id="infoDias"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Horas: <span class="font-weight-light" id="infoHoras"></span>
+        </p>
+
+        <p class="font-weight-bold">
+          Costo Total: USD
+          <span class="font-weight-light" id="infoCostoTotal"></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="historico">
+      <table class="table">
+        <h2 class="tituloSecundario">Historico de cotizaciones</h2>
+        <hr />
+        <thead>
+          <tr>
+            <th class="text-center" scope="col">Referencia</th>
+            <th class="text-center" scope="col">Trabajo</th>
+            <th class="text-center" scope="col">Herramientas</th>
+            <th class="text-center" scope="col">Costo Total</th>
+            <th class="text-center" scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+
+      <div>
+        <form
+          action=""
+          method="POST"
+          id="historicoId"
+          class="btn btn-primary"
+          onsubmit="return false;"
+        >
+          <input
+            type="reset"
+            value="Borrar Historial"
+            id="borrarHistorial"
+            class="btn btn-primary"
+          />
+        </form>
+      </div>
+
+      <div class="totalCotizado" role="alert" id="alerta">
+        <p class="font-weight-bold valorTotal">
+          Total Cotizado: USD
+          <span class="font-weight-light" id="infoTotalCotizado"></span>
+        </p>
+        <p class="font-weight-bold valorTotal">
+          Total Cotizado: ARS
+          <span class="font-weight-light" id="infoTotalCotizadoARS"></span>
+        </p>
+      </div>
+      <div>
+        <form
+          action=""
+          method="POST"
+          id="formularioCambio"
+          class="formularioParaLlenar"
+          onsubmit="return false;"
+        >
+          <h2 class="tituloSecundario">Tipo de cambio a usar:</h2>
+
+          <div class="form-group">
+            <input type="float" class="form-control" id="cambioAUsar" />
+          </div>
+          <input
+            type="submit"
+            value="Cambio Ingresado"
+            id="submitCambio"
+            class="btn btn-primary"
+          />
+        </form>
+      </div>
+      <p class="text-center">
+        Para convertir de USD a ARS se utiliza la cotización actual:
+      </p>
+      <div class="text-center" id="tiposCambioUSD"></div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

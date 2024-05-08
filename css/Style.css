@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  h2 {
+    color: black;
+    font-size: 14rem;
+    text-align: center;
+  }
+  
+  h4 {
+    color: blue;
+    font-size: 1rem;
+    text-align: center;
+    background-color: yellow;
+  /*  text-decoration: underline; */
+  }
+  
+  .informacionParaCotizar {
+    list-style-type: none;
+  }
+  
+  .item {
+    display: inline;
+  }
+  
+  .table tbody#table tr td {
+    vertical-align: middle;
+    display: table-cell;
+  }
+  
+  a.borrarCotizacion {
+    background-color: rgb(211, 100, 100);
+    border-radius: 70%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  
+  
+  
+  .titulo {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: ghostwhite;
+    text-align: center;
+  }
+  
+  .mensaje {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: ghostwhite;
+    align-content: center;
+    text-align: center;
+  }
+  .mensaje p {
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  
+  .formularioParaLlenar {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: ghostwhite;
+    text-align: center;
+  }
+  
+  .tituloSecundario {
+    color: orangered;
+    font-size: 2rem;
+    text-align: center;
+  /*  text-decoration: underline; */
+  }
+  
+  .ultimaCotizacion {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: ghostwhite;
+  }
+  
+  .historico {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: ghostwhite;
+  }
+  
+  .totalCotizado {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .boton {
+    display: inline-block;
+  }
+  
+  .valorTotal {
+    font-size: 2.5rem;
+  }
